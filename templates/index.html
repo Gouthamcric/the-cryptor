@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Cryptor</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+              <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $(document).ready(function(){
+              $("#hide").click(function(){
+                $("#new1").css("display","none");
+                $("#pager").css("display","block");
+              }); 
+            });
+        </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+                </div>
+                <a href="index.html" class="logo"><img src="../static/img/logo.png" alt=""></a>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Source code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero" id="hero">
+        
+                    <div class="container" style="margin-top: 10px" id="pager">
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div style="background-color: black;" class="card-header">
+                        <center style="color:white">    DES Encryptor/Decryptor</center>
+                    </div>
+                    <div class="card-body text-left">
+                        <form class="form-signin" action="/calculate" method="post" role="form">
+
+                        <h6>Message(in hex)</h6>
+                        <input type="text" class="form-control" placeholder="Message(hex)" id="message" name="message" required><br>
+                        <h6>Key(in hex)</h6>
+                        <input type="text" class="form-control" placeholder="Key(hex)" id="key" name="key" required><br>
+                        <h6>Function</h6>
+                 
+                            <select name="func" id="func" class="form-control">
+                                <option value="decrytion" id="decryption" name="decryption">Decryption</option>
+                              <option value="encryption" id="encryption" name="encryption">Encryption</option>
+                            </select>
+                        <br>
+                        <button type="submit"  class="btn btn-dark btn-lg btn-block  ml-auto" id="submit">Compute!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% if flag==0 %}        
+<div class="container" id="new1">
+            <h2 class="sub-headLine">
+                <span class="first-letter">W</span>elcome
+            </h2>
+            <h1 class="headLine">The Cryptor</h1>
+            <div class="headLine-description">
+                <div class="separator">
+                    <div class="libe line-left"></div>
+                    <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+                    <div class="libe line-right"></div>
+                </div>
+                <br>
+                <h5>{{res}}</h5>
+
+                <br>
+                <div class="single-animation">
+                    <h5>Ready to be Encoded/Decoded</h5>
+                    <button id="hide">
+                    <a href="#" class="btn cta-btn">Click Here!!</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+{% elif flag ==1 %}        
+<div class="container" id="new1">
+            <h2 class="sub-headLine">
+                <span class="first-letter"></span>{{method}}Result :
+            </h2>
+            <h1 class="headLine">{{res}}</h1>
+            <div class="headLine-description">
+                <div class="separator">
+                    <div class="libe line-left"></div>
+                    <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+                    <div class="libe line-right"></div>
+                </div>
+                <br>
+                <div class="single-animation">
+                    <h5>Scroll down for intermediate results!!</h5>
+
+                </div>
+            </div>
+        </div>
+{% endif %}
+    </section>
+    <section class="discover-our-story">
+        
+	<div class="container">
+            <div class="class_1">
+                <div class="class_1_description padding-right animate-left">
+                    <div class="global-headline">
+                       <h2 class="sub-headLine">
+                <span class="first-letter">B</span>efore
+            </h2>
+            <h1 class="headLine headline-dark">16 feistel rounds</h1>
+            <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+                    </div>
+                    <p>
+                        <b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">Plain plain text to binary</b> {{List_0[0]}}
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">After initial permutation</b> {{List_0[1]}}
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">L0</b> {{List_0[2]}}
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">R0</b> {{List_0[3]}}
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">Key to binary</b> {{List_0[4]}}
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">After permutation choice 1</b> {{List_0[5]}}
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">C0</b> {{List_0[6]}}
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">D0</b> {{List_0[7]}}  
+                    </p>
+                  
+                </div>
+                <div class="class_1-img animate-right">
+                    <img src="../static/img/data.jpg" alt="">
+                </div>
+            </div>  
+        </div>
+    </section>
+    {% for i in range(16) %}
+    <section class="class_2 between" id="{%print i%}">
+        <div class="container">
+          <div class="global-headline">
+              <div class="animate-top">
+                  <h2 class="sub-headLine">
+                <span class="first-letter">R</span>ound
+            </h2>
+              </div>
+              <div class="animate-bottom">
+                  <h1 class="headLine">
+                      {% if i == 0 %} One 
+                      {% elif i == 1 %} Two 
+                      {% elif i == 2 %} Three 
+                      {% elif i == 3 %} Four 
+                      {% elif i == 4%} Five 
+                      {% elif i == 5%} Six 
+                      {% elif i == 6%} Seven 
+                      {% elif i == 7%} Eight 
+                      {% elif i == 8%} Nine 
+                      {% elif i == 9%} Ten 
+                      {% elif i == 10%} Eleven 
+                      {% elif i == 11%} Twelve 
+                      {% elif i == 12%} Thirteen 
+                      {% elif i == 13%} Fourteen 
+                      {% elif i == 14%} Fifteen 
+                      {% elif i == 15%} Sixteen {% endif %}
+                      
+                      
+                  </h1>
+              </div>    
+           </div>  
+        </div>
+    </section>
+    <section class="class_3">
+        <div class="container">
+            <div class="class_1">
+                <div class="image-group padding-right animate-left">
+                    {%if i%2 == 0%}
+                    <img src="../static/img/img1.png" alt=""/>
+                     <img src="../static/img/img2.png" alt=""/>
+                      <img src="../static/img/img3.png" alt=""/>
+                       <img src="../static/img/img4.png" alt=""/>
+                      {%elif i%3 == 0%}
+                       <img src="../static/img/img111.png" alt=""/>
+                     <img src="../static/img/img222.png" alt=""/>
+                      <img src="../static/img/img333.jpg" alt=""/>
+                       <img src="../static/img/img444.jpg" alt=""/>
+                       {%elif i%2 != 0%}
+                       <img src="../static/img/img11.png" alt=""/>
+                     <img src="../static/img/img22.png" alt=""/>
+                      <img src="../static/img/img33.png" alt=""/>
+                       <img src="../static/img/img44.png" alt=""/>
+                       {% endif %}
+                </div>
+                <div class="class_1_description animate-right">
+                   <div class="global-headline">
+                       <h2 class="sub-headLine">
+                <span class="first-letter">A</span>fter
+            </h2>
+                       <h1 class="headLine headline-dark">
+                      {% if i == 0 %} Round 1 
+                      {% elif i == 1 %} Round 2 
+                      {% elif i == 2 %} Round 3 
+                      {% elif i == 3 %} Round 4
+                      {% elif i == 4%} Round 5 
+                      {% elif i == 5%} Round 6 
+                      {% elif i == 6%} Round 7 
+                      {% elif i == 7%} Round 8 
+                      {% elif i == 8%} Round 9 
+                      {% elif i == 9%} Round 10 
+                      {% elif i == 10%} Round 11 
+                      {% elif i == 11%} Round 12 
+                      {% elif i == 12%} Round 13 
+                      {% elif i == 13%} Round 14 
+                      {% elif i == 14%} Round 15 
+                      {% elif i == 15%} Round 16 {% endif %}
+                       </h1>
+            <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+                    </div> 
+                    <p>
+                        <b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default"><u>Key generation</u></b>
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">C</b> {{List_1[i][0]}}
+                        <br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">D</b>  {{List_1[i][1]}}
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">Key</b> {{List_1[i][0]}}
+
+
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default"><u>Cipher Text generation</u></b>
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">After Expansion</b> {{List_1[i][2]}}
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">After K XOR E(R)</b> {{List_1[i][3]}}
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">SBOX Application</b> {{List_1[i][4]}}
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">SBOX Result to Binary</b> {{List_1[i][5]}}
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">Result after Permutation</b> {{List_1[i][6]}}
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">R</b> {{List_1[i][7]}}
+<br><b class="btn body-btn" style="font-size:15px;font-weight: bolder;cursor: default">L</b> {{List_1[i][8]}}
+                    </p> 
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+    <footer>
+        <div class="container">
+            <div class="back-to-top">
+                <a href="#hero"><i class="fas fa-chevron-up"></i></a>
+            </div>
+            <div class="footer-content">
+                <div class="footer-content-about animate-top">
+                    <h4>About Us</h4>
+                     <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+                    
+                </div>
+                <div class="footer-content-divider animate-bottom">
+                    <div class="social-media">
+                        <h4>Follow Along</h4>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                           </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="../static/js/main.js"></script>
+<script>
+    $(function() {
+    $('button').click(function() {
+        $.ajax({
+            url: '/calculate',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
